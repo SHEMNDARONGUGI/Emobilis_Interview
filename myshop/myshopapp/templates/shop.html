@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shop</title>
+    {%load static%}
 </head>
 <body>
-    
+    {% for product in products%}
+    <div>
+        <img src="{{product.image.url}}" alt="">
+        <h3>{{product.title}}</h3>
+        <p>{{product.price}}</p>
+         <a href="{% url 'update_product' product.id %}">Edit</a> |
+        <a href="{% url 'delete_product' product.id %}" onclick="return confirm('Are you sure?')">Delete</a>
+    </div>
+    {%endfor%}
 </body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+</head>
+<body>
+    <h1>Update Product</h1>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Title:</label>
+        <input type="text" name="title" value="{{ product.title }}"><br><br>
+
+        <label>Price:</label>
+        <input type="text" name="price" value="{{ product.price }}"><br><br>
+
+        <label>Current Image:</label><br>
+        <img src="{{ product.image.url }}" alt="" width="150"><br><br>
+
+        <label>New Image (optional):</label>
+        <input type="file" name="image"><br><br>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <a href="{% url 'shop' %}">Back to Shop</a>
+</body>
+</html>
