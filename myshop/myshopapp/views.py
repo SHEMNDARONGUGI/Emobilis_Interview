@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from .models import Product
 
 # Create your views here.
-def my_product(request):
+
+def index(request):
+    return render(request, 'index.html') 
+
+def shop(request):
     if request.method == 'POST':
         myimage = Product(
             image = request.FILES.get('image'),
